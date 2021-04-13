@@ -48,8 +48,8 @@ class canvas:
         if not(self.lock):
             self.lock = True
             self.area.delete('all')
-            for x in range(0, width, 10):
-                for y in range(0, height, 10):
+            for x in range(0, width, 2):
+                for y in range(0, height, 2):
                     a = self.map(x,width,self.scale)
                     b = self.map(y,height,self.scale)
                     c1 = i # a
@@ -62,7 +62,7 @@ class canvas:
                         a = t_a + c1
                         b = t_b + c2
                         n += 1
-                    if n == self.resolution:self.area.create_oval(x-4,y-4,x+4,y+4,fill='green')
+                    if n == self.resolution:self.area.create_oval(x-1,y-1,x+1,y+1,fill='green')
             self.lock = False
 
     def map(self,value,dimension,scale):return (value/dimension)*((dimension/scale)-(-1*dimension/scale))+(-1*dimension/scale)
